@@ -1,0 +1,181 @@
+const SPREADSHEET_ID = '178026Fv1Hb48F8k5k2gyTueYF_TTvyr-95sWl-lwIoc';
+
+/**
+ * Serves the main HTML page.
+ */
+function doGet(e) {
+  return HtmlService.createTemplateFromFile('Index')
+    .evaluate()
+    .setTitle('Rizki Pahlawi — Pendidik & Founder')
+    .addMetaTag('viewport', 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
+    .setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
+}
+
+/**
+ * Helper function to include external HTML files dynamically.
+ */
+function include(filename) {
+  return HtmlService.createHtmlOutputFromFile(filename).getContent();
+}
+
+/**
+ * Initializes the Google Sheets database with robust tables and seed data.
+ */
+function setupDatabase() {
+  const ss = SpreadsheetApp.openById(SPREADSHEET_ID);
+  
+  const tables = {
+    'contacts': ['id', 'nama', 'email', 'pesan', 'created_at'],
+    'blog_posts': ['id', 'title', 'content', 'category', 'author', 'status', 'image_url', 'created_at']
+  };
+
+  for (let tableName in tables) {
+    let sheet = ss.getSheetByName(tableName);
+    if (!sheet) {
+      sheet = ss.insertSheet(tableName);
+    }
+    // Always update/overwrite the header row to ensure schema is correct
+    sheet.getRange(1, 1, 1, tables[tableName].length).setValues([tables[tableName]]);
+    sheet.setFrozenRows(1);
+  }
+
+  // Seed default articles if the blog_posts sheet is empty (only has header)
+  const blogSheet = ss.getSheetByName('blog_posts');
+  if (blogSheet.getLastRow() === 1) {
+    const seedPosts = [
+      [
+        'post-1',
+        'Membangun Ekosistem Pendidikan Islam yang Relevan di Era Digital',
+        'Pendidikan Islam hari ini menghadapi tantangan sekaligus peluang besar. Digitalisasi bukan sekadar memindahkan papan tulis ke layar gawai, melainkan mendesain ulang bagaimana nilai-nilai luhur Al-Qur\'an dan tradisi keilmuan Islam dapat diinternalisasi secara adaptif, interaktif, dan berkelanjutan oleh generasi masa kini.',
+        'Pendidikan',
+        'Rizki Pahlawi',
+        'Published',
+        'https://images.unsplash.com/photo-1510070112810-d4e9a46d9e91?auto=format&fit=crop&w=800&q=80',
+        new Date()
+      ],
+      [
+        'post-2',
+        'Kewirausahaan Syariah: Menghubungkan Nilai Spiritual dan Keberlanjutan Ekonomi',
+        'Bisnis syariah sejati tidak hanya terletak pada label atau akad formalitas semata. Esensinya adalah bagaimana sebuah sistem usaha mampu menghadirkan keadilan, transparansi, dan kemudahan nyata bagi masyarakat luas. Melalui inisiatif Sahlah, kami berikhtiar membangun model kepemilikan yang bertanggung jawab tanpa membebani.',
+        'Syariah Bisnis',
+        'Rizki Pahlawi',
+        'Published',
+        'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80',
+        new Date()
+      ],
+      [
+        'post-3',
+        'Sistem dan Kepercayaan: Kunci Utama dalam Pengembangan Kurikulum Modern',
+        'Sebuah kurikulum pendidikan tidak akan pernah berfungsi optimal tanpa adanya sistem pendukung yang kokoh dan kepercayaan dari seluruh stakeholders. Kepercayaan dibangun lewat konsistensi mutu pengajaran, keterbukaan komunikasi, dan keselarasan visi antara pendidik, orang tua, dan lembaga.',
+        'Kurikulum',
+        'Rizki Pahlawi',
+        'Published',
+        'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80',
+        new Date()
+      ]
+    ];
+    seedPosts.forEach(function(row) {
+      blogSheet.appendRow(row);
+    });
+  }
+}
+
+/**
+ * Sanitizes and serializes database rows safely for the client.
+ */
+function serializeForClient(value) {
+  if (Array.isArray(value)) {
+    return value.map(function(item) {
+      if (Array.isArray(item)) {
+        return item.map(function(cell) {
+          if (cell instanceof Date) { return cell.toISOString(); }
+          if (typeof cell === 'undefined') { return null; }
+          return cell;
+        });
+      } else if (typeof item === 'object' && item !== null) {
+        const serializedObject = {};
+        for (const key in item) {
+          if (item.hasOwnProperty(key)) {
+            const cell = item[key];
+            if (cell instanceof Date) { serializedObject[key] = cell.toISOString(); }
+            else if (typeof cell === 'undefined') { serializedObject[key] = null; }
+            else { serializedObject[key] = cell; }
+          }
+        }
+        return serializedObject;
+      }
+      return item;
+    });
+  } else if (typeof value === 'object' && value !== null) {
+    const serializedObject = {};
+    for (const key in value) {
+      if (value.hasOwnProperty(key)) {
+        const cell = value[key];
+        if (cell instanceof Date) { serializedObject[key] = cell.toISOString(); }
+        else if (typeof cell === 'undefined') { serializedObject[key] = null; }
+        else { serializedObject[key] = cell; }
+      }
+    }
+    return serializedObject;
+  }
+  return value;
+}
+
+/**
+ * Retrieves all published blog posts from the spreadsheet.
+ */
+function getBlogPosts() {
+  try {
+    const ss = SpreadsheetApp.openById(SPREADSHEET_ID);
+    const sheet = ss.getSheetByName('blog_posts');
+    if (!sheet || sheet.getLastRow() <= 1) {
+      return { ok: true, data: [] };
+    }
+    const data = sheet.getDataRange().getValues();
+    const headers = data[0];
+    const rows = data.slice(1);
+    
+    const blogPosts = [];
+    for (let i = 0; i < rows.length; i++) {
+      const row = rows[i];
+      const post = {};
+      headers.forEach(function(header, idx) {
+        post[header] = row[idx];
+      });
+      if (post.status === 'Published') {
+        blogPosts.push(post);
+      }
+    }
+    
+    // Reverse to show latest first
+    blogPosts.reverse();
+    return { ok: true, data: serializeForClient(blogPosts) };
+  } catch (e) {
+    return { ok: false, message: e.toString() };
+  }
+}
+
+/**
+ * Handles professional contact form submission.
+ */
+function submitContact(formData) {
+  try {
+    const ss = SpreadsheetApp.openById(SPREADSHEET_ID);
+    const sheet = ss.getSheetByName('contacts');
+    if (!sheet) {
+      return { ok: false, message: 'Sheet contacts belum diinisialisasi.' };
+    }
+    
+    sheet.appendRow([
+      Utilities.getUuid(),
+      formData.nama,
+      formData.email,
+      formData.pesan,
+      new Date()
+    ]);
+    
+    return { ok: true, message: 'Pesan Anda berhasil terkirim. Terima kasih atas kepercayaan Anda.' };
+  } catch (e) {
+    return { ok: false, message: e.toString() };
+  }
+}

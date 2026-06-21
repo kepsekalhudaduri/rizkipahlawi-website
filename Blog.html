@@ -1,0 +1,88 @@
+<!-- Blog Section -->
+<section id="articles" class="py-24 px-6 max-w-6xl mx-auto" x-data="blogState()" x-init="fetchPosts()">
+  <div class="space-y-16">
+    <div class="text-center space-y-4">
+      <h2 class="font-heading text-3xl font-bold text-brand-primary">Tulisan dan Catatan</h2>
+      <p class="text-brand-secondary/60 max-w-md mx-auto text-sm">Tempat saya menyimpan pemikiran, pengalaman mengajar, pembelajaran teknologi, serta catatan perjalanan membangun pendidikan dan usaha Sahlah Gadget .</p>
+      <div class="w-12 h-1 bg-brand-accent mx-auto"></div>
+    </div>
+
+    <!-- Loading State -->
+    <div x-show="loading" class="grid md:grid-cols-3 gap-8">
+      <template x-for="i in [1,2,3]">
+        <div class="border border-brand-primary/5 rounded p-6 bg-white animate-pulse space-y-4">
+          <div class="h-48 bg-slate-200 rounded w-full"></div>
+          <div class="h-4 bg-slate-200 rounded w-1/4"></div>
+          <div class="h-6 bg-slate-200 rounded w-3/4"></div>
+          <div class="h-4 bg-slate-200 rounded w-5/6"></div>
+        </div>
+      </template>
+    </div>
+
+    <!-- Empty State -->
+    <div x-show="!loading && posts.length === 0" x-cloak class="text-center py-12 text-brand-secondary/60">
+      <i data-lucide="book-open" class="w-12 h-12 mx-auto opacity-30 mb-4"></i>
+      Belum ada artikel yang dipublikasikan.
+    </div>
+
+    <!-- Dynamic Post Cards -->
+    <div x-show="!loading && posts.length > 0" x-cloak class="grid md:grid-cols-3 gap-8">
+      <template x-for="post in posts" :key="post.id">
+        <article class="bg-white border border-brand-primary/5 rounded overflow-hidden flex flex-col justify-between hover:shadow-md transition-all">
+          <div>
+            <div class="h-48 overflow-hidden relative bg-slate-100">
+              <img :src="post.image_url || 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80'" :alt="post.title" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6 space-y-4">
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-semibold uppercase tracking-wider text-brand-accent" x-text="post.category"></span>
+                <span class="text-xs text-brand-secondary/40">•</span>
+                <span class="text-xs text-brand-secondary/60" x-text="formatDate(post.created_at)"></span>
+              </div>
+              <h3 class="font-heading text-lg font-bold text-brand-primary hover:text-brand-accent transition-colors">
+                <a href="javascript:void(0)" @click="openPost(post)" x-text="post.title"></a>
+              </h3>
+              <p class="text-sm text-brand-secondary/80 line-clamp-3 leading-relaxed" x-text="post.content"></p>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <button @click="openPost(post)" class="text-xs font-semibold text-brand-primary hover:text-brand-accent flex items-center gap-1 transition-colors">
+              Baca Selengkapnya <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </article>
+      </template>
+    </div>
+  </div>
+
+  <!-- Article Detail Modal -->
+  <div x-show="activePost" x-cloak class="fixed inset-0 z-50 overflow-y-auto flex items-center justify-center p-4 bg-brand-primary/60 backdrop-blur-sm" @click.away="activePost = null">
+    <div class="bg-brand-bg rounded-lg max-w-2xl w-full border border-brand-primary/10 shadow-2xl flex flex-col max-h-[85vh]">
+      <div class="p-6 border-b border-brand-primary/5 flex items-center justify-between">
+        <div>
+          <span class="text-xs font-semibold uppercase tracking-wider text-brand-accent" x-text="activePost?.category"></span>
+          <h2 class="font-heading text-xl font-bold text-brand-primary mt-1" x-text="activePost?.title"></h2>
+        </div>
+        <button @click="activePost = null" class="text-brand-primary hover:text-brand-accent transition-colors">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+      <div class="p-6 overflow-y-auto space-y-6 text-brand-secondary/90 leading-relaxed text-sm">
+        <div class="h-64 rounded overflow-hidden bg-slate-100">
+          <img :src="activePost?.image_url || 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80'" :alt="activePost?.title" class="w-full h-full object-cover">
+        </div>
+        <div class="flex items-center gap-4 text-xs text-brand-secondary/50">
+          <span>Penulis: <strong x-text="activePost?.author"></strong></span>
+          <span>•</span>
+          <span x-text="formatDate(activePost?.created_at)"></span>
+        </div>
+        <p class="whitespace-pre-line" x-text="activePost?.content"></p>
+      </div>
+      <div class="p-4 bg-white border-t border-brand-primary/5 flex justify-end">
+        <button @click="activePost = null" class="px-4 py-2 bg-brand-primary text-white text-xs font-semibold rounded hover:bg-brand-secondary transition-colors">
+          Tutup Artikel
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

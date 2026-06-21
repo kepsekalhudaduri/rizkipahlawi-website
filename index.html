@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Rizki Pahlawi</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              primary: '#102A43',
+              secondary: '#243B53',
+              accent: '#C9A227',
+              bg: '#F5F7FA',
+              text: '#102A43'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Outfit', 'Plus Jakarta Sans', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Alpine.js -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <style>
+    [x-cloak] { display: none !important; }
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body class="bg-brand-bg text-brand-text font-sans antialiased selection:bg-brand-accent/20" x-data="appState()" x-init="init()">
+
+  <!-- Toast Notification System -->
+  <div class="fixed top-5 right-5 z-50 flex flex-col gap-2 max-w-md w-full">
+    <template x-for="toast in toasts" :key="toast.id">
+      <div 
+        class="p-4 rounded-lg shadow-lg border text-sm flex items-center justify-between transition duration-300 transform translate-y-0"
+        :class="toast.type === 'success' ? 'bg-emerald-50 border-emerald-200 text-emerald-800' : 'bg-rose-50 border-rose-200 text-rose-800'"
+      >
+        <div class="flex items-center gap-2">
+          <i :data-lucide="toast.type === 'success' ? 'check-circle' : 'alert-circle'" class="w-4 h-4"></i>
+          <span x-text="toast.message"></span>
+        </div>
+        <button @click="removeToast(toast.id)" class="text-xs opacity-50 hover:opacity-100 ml-4 font-bold">×</button>
+      </div>
+    </template>
+  </div>
+
+  <!-- Header Navigation -->
+  <header class="sticky top-0 z-40 bg-brand-bg/95 backdrop-blur-md border-b border-brand-primary/5">
+    <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="#home" class="font-heading font-bold text-xl tracking-wide text-brand-primary">
+        Rizki Pahlawi
+      </a>
+      
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-brand-secondary">
+        <a href="#home" class="hover:text-brand-accent transition-colors">Beranda</a>
+        <a href="#about" class="hover:text-brand-accent transition-colors">Tentang Saya</a>
+        <a href="#activities" class="hover:text-brand-accent transition-colors">Aktivitas</a>
+        <a href="#projects" class="hover:text-brand-accent transition-colors">Proyek</a>
+        <a href="#articles" class="hover:text-brand-accent transition-colors">Artikel</a>
+        <a href="#contact" class="hover:text-brand-accent transition-colors">Kontak</a>
+      </nav>
+
+      <!-- Mobile Nav Toggle -->
+      <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden text-brand-primary focus:outline-none" aria-label="Toggle Menu">
+        <i data-lucide="menu" class="w-6 h-6" x-show="!mobileMenuOpen"></i>
+        <i data-lucide="x" class="w-6 h-6" x-show="mobileMenuOpen" x-cloak></i>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div x-show="mobileMenuOpen" x-cloak class="md:hidden border-t border-brand-primary/5 bg-brand-bg px-6 py-4 flex flex-col gap-4 font-medium shadow-inner">
+      <a @click="mobileMenuOpen = false" href="#home" class="text-brand-secondary hover:text-brand-accent py-2">Beranda</a>
+      <a @click="mobileMenuOpen = false" href="#about" class="text-brand-secondary hover:text-brand-accent py-2">Tentang Saya</a>
+      <a @click="mobileMenuOpen = false" href="#activities" class="text-brand-secondary hover:text-brand-accent py-2">Aktivitas</a>
+      <a @click="mobileMenuOpen = false" href="#projects" class="text-brand-secondary hover:text-brand-accent py-2">Proyek</a>
+      <a @click="mobileMenuOpen = false" href="#articles" class="text-brand-secondary hover:text-brand-accent py-2">Artikel</a>
+      <a @click="mobileMenuOpen = false" href="#contact" class="text-brand-secondary hover:text-brand-accent py-2">Kontak</a>
+    </div>
+  </header>
+
+  <!-- Dynamic Modular Sections -->
+  <?!= include('Home'); ?>
+  <?!= include('About'); ?>
+  <?!= include('Activities'); ?>
+  <?!= include('Projects'); ?>
+  <?!= include('Blog'); ?>
+  <?!= include('Contact'); ?>
+
+  <!-- Footer -->
+  <footer class="bg-brand-primary text-white py-16 px-6">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 border-b border-white/10 pb-12">
+      <div class="text-center md:text-left space-y-2">
+        <span class="font-heading font-bold text-2xl tracking-wide">Rizki Pahlawi</span>
+        <p class="text-sm text-brand-bg/60">"Ngajar al-Quran. Entrepreneur Syariah. Pembelajar Teknologi"</p>
+      </div>
+      <div class="flex gap-6 text-sm text-brand-bg/80">
+        <a href="#home" class="hover:text-brand-accent transition-colors">Beranda</a>
+        <a href="#about" class="hover:text-brand-accent transition-colors">Tentang Saya</a>
+        <a href="#activities" class="hover:text-brand-accent transition-colors">Aktivitas</a>
+        <a href="#projects" class="hover:text-brand-accent transition-colors">Proyek</a>
+        <a href="#articles" class="hover:text-brand-accent transition-colors">Artikel</a>
+        <a href="#contact" class="hover:text-brand-accent transition-colors">Kontak</a>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-brand-bg/40">
+      <p>© 2026 Rizki Pahlawi. All rights reserved.</p>
+      <p>rizkipahlawi.my.id</p>
+    </div>
+  </footer>
+
+  <script>
+    // Global State & Toast Handler
+    function appState() {
+      return {
+        mobileMenuOpen: false,
+        toasts: [],
+        init() {
+          lucide.createIcons();
+        },
+        showToast(message, type = 'success') {
+          const id = Date.now();
+          this.toasts.push({ id, message, type });
+          setTimeout(() => {
+            this.removeToast(id);
+          }, 4000);
+          this.$nextTick(() => { lucide.createIcons(); });
+        },
+        removeToast(id) {
+          this.toasts = this.toasts.filter(t => t.id !== id);
+        }
+      }
+    }
+
+    // Blog Integration State
+    function blogState() {
+      return {
+        loading: false,
+        posts: [],
+        activePost: null,
+        fetchPosts() {
+          this.loading = true;
+          google.script.run
+            .withSuccessHandler(res => {
+              this.loading = false;
+              if (res.ok) {
+                this.posts = res.data;
+              } else {
+                console.error('Error fetching blog posts:', res.message);
+              }
+              this.$nextTick(() => { lucide.createIcons(); });
+            })
+            .withFailureHandler(err => {
+              this.loading = false;
+              console.error('Failure fetching blog posts:', err);
+            })
+            .getBlogPosts();
+        },
+        openPost(post) {
+          this.activePost = post;
+          this.$nextTick(() => { lucide.createIcons(); });
+        },
+        formatDate(isoString) {
+          if (!isoString) return '';
+          try {
+            const date = new Date(isoString);
+            return date.toLocaleDateString('id-ID', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric'
+            });
+          } catch(e) {
+            return isoString;
+          }
+        }
+      }
+    }
+
+    // Contact Form Submission State
+    function contactForm() {
+      return {
+        loading: false,
+        formData: {
+          nama: '',
+          email: '',
+          pesan: ''
+        },
+        submitForm() {
+          this.loading = true;
+          google.script.run
+            .withSuccessHandler(res => {
+              this.loading = false;
+              if (res.ok) {
+                this.$parent.showToast(res.message, 'success');
+                this.formData = { nama: '', email: '', pesan: '' };
+              } else {
+                this.$parent.showToast('Gagal mengirim pesan: ' + res.message, 'error');
+              }
+            })
+            .withFailureHandler(err => {
+              this.loading = false;
+              this.$parent.showToast('Terjadi kesalahan jaringan.', 'error');
+            })
+            .submitContact(this.formData);
+        }
+      }
+    }
+  </script>
+</body>
+</html>
