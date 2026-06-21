@@ -91,15 +91,599 @@
       <a @click="mobileMenuOpen = false" href="#contact" class="text-brand-secondary hover:text-brand-accent py-2">Kontak</a>
     </div>
   </header>
+<!-- Hero Section -->
+<section id="home" class="relative min-h-[calc(100vh-5rem)] flex items-center py-16 px-6 overflow-hidden bg-[#F8FAFC]">
+  
+  <!-- Subtle Elegant Background Ornaments -->
+  <div class="absolute top-12 left-6 w-24 h-24 opacity-10 pointer-events-none bg-[radial-gradient(#102a43_2px,transparent_2px)] [background-size:12px_12px]"></div>
+  <div class="absolute bottom-12 right-6 w-32 h-32 opacity-15 pointer-events-none bg-[radial-gradient(#C9A227_2px,transparent_2px)] [background-size:16px_16px]"></div>
+  
+  <!-- Islamic Star Pattern (Bottom Left Background) -->
+  <div class="absolute -bottom-16 -left-16 w-64 h-64 opacity-[0.03] pointer-events-none text-brand-primary">
+    <svg viewBox="0 0 100 100" fill="currentColor" class="w-full h-full">
+      <path d="M50 0 L61.2 38.8 L100 50 L61.2 61.2 L50 100 L38.8 61.2 L0 50 L38.8 38.8 Z" />
+      <path d="M50 15 L57.5 42.5 L85 50 L57.5 57.5 L50 85 L42.5 57.5 L15 50 L42.5 42.5 Z" opacity="0.5" />
+    </svg>
+  </div>
 
-  <!-- Dynamic Modular Sections -->
-  <?!= include('Home'); ?>
-  <?!= include('About'); ?>
-  <?!= include('Activities'); ?>
-  <?!= include('Projects'); ?>
-  <?!= include('Blog'); ?>
-  <?!= include('Contact'); ?>
+  <div class="max-w-6xl mx-auto grid md:grid-cols-12 gap-12 items-center w-full relative z-10">
+    
+    <!-- Left Column: Copywriting & Actions -->
+    <div class="md:col-span-7 space-y-8">
+      
+      <!-- Premium Pill Badge -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-[#C9A227]/10 rounded-full text-xs font-bold uppercase tracking-wider text-brand-accent">
+        <span class="w-2 h-2 rounded-full bg-brand-accent"></span>
+        Pendidik & Founder
+      </div>
+      
+      <!-- Headline with Gold Dots -->
+      <div class="relative space-y-1">
+        <h1 class="font-heading text-5xl md:text-6xl font-extrabold tracking-tight text-brand-primary leading-[1.1]">
+          Pendidikan<span class="text-brand-accent">.</span><br>
+          Sistem<span class="text-brand-accent">.</span><br>
+          Kepercayaan<span class="text-brand-accent">.</span>
+        </h1>
+        <!-- Artistic Gold Underline Brush -->
+        <div class="w-56 h-2 bg-gradient-to-r from-brand-accent to-transparent rounded-full opacity-80 mt-2"></div>
+      </div>
+      
+      <!-- Multi-paragraph Body Text with highlights -->
+      <div class="text-sm md:text-base text-brand-secondary/90 leading-relaxed space-y-5 max-w-xl">
+        <p>
+          Sebagian besar waktu saya dihabiskan untuk membersamai proses belajar Al-Qur'an. Mulai dari mengajar anak-anak, mendampingi bapak-bapak yang belajar dari nol, menjadi imam masjid, hingga terlibat dalam pengembangan pendidikan di pesantren.
+        </p>
+        <p>
+          Saya percaya bahwa <strong class="text-brand-primary font-bold">perubahan besar</strong> sering kali dimulai dari <strong class="text-brand-primary font-bold">hal sederhana</strong>: satu huruf yang dibaca dengan benar, satu ayat yang dipahami, dan satu kebiasaan baik yang dijaga secara konsisten.
+        </p>
+        <p>
+          Di luar aktivitas pendidikan, saya mengembangkan <strong class="text-brand-accent font-semibold">Sahlah Gadget</strong> sebagai ikhtiar menghadirkan solusi pembiayaan dan pembelajaran yang lebih mudah, bermanfaat, dan sesuai prinsip syariah.
+        </p>
+      </div>
+      
+      <!-- Action Buttons -->
+      <div class="flex flex-wrap gap-4 pt-2">
+        <!-- Main Button: Lihat Aktivitas -->
+        <a href="#activities" class="group px-6 py-3.5 bg-brand-primary hover:bg-brand-secondary text-white font-medium text-sm rounded-full transition-all shadow-md hover:shadow-lg flex items-center gap-3">
+          <span>Lihat Aktivitas</span>
+          <span class="w-6 h-6 rounded-full bg-brand-accent flex items-center justify-center text-brand-primary group-hover:translate-x-1 transition-transform">
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </span>
+        </a>
+        <!-- Secondary Button: Kenali Saya -->
+        <a href="#about" class="px-6 py-3.5 border border-brand-accent/40 hover:border-brand-accent text-brand-primary font-medium text-sm rounded-full transition-all flex items-center gap-2 bg-white/50 hover:bg-white shadow-sm">
+          <i data-lucide="user" class="w-4 h-4 text-brand-accent"></i>
+          <span>Kenali Saya</span>
+        </a>
+      </div>
+    </div>
+    
+    <!-- Right Column: Premium Islamic Modern Card -->
+    <div class="md:col-span-5 flex justify-center">
+      <div class="relative w-full max-w-[360px] md:max-w-[380px] rounded-[2rem] bg-white p-[2px] bg-gradient-to-b from-brand-accent/60 via-white to-brand-accent shadow-2xl overflow-hidden">
+        
+        <!-- Inner Card container -->
+        <div class="bg-white rounded-[1.9rem] overflow-hidden flex flex-col h-full relative">
+          
+          <!-- Subtle Dotted Grid (Top Left) -->
+          <div class="absolute top-6 left-6 w-16 h-16 opacity-20 pointer-events-none bg-[radial-gradient(#102a43_1.5px,transparent_1.5px)] [background-size:8px_8px]"></div>
+          
+          <!-- Three dots in top-right -->
+          <div class="absolute top-6 right-6 flex gap-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-accent/50"></span>
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-accent/50"></span>
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-accent/50"></span>
+          </div>
 
+          <!-- Hexagonal Gold Border & Portrait Container -->
+          <div class="flex justify-center pt-10 pb-4 relative z-10">
+            <div class="relative w-56 h-56 flex items-center justify-center">
+              
+              <!-- External Hexagonal Gold Frame (Simulated with clip-path & border) -->
+              <div class="absolute inset-0 bg-gradient-to-tr from-brand-accent to-yellow-200 p-[3px] shadow-lg" style="clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);">
+                <div class="w-full h-full bg-white" style="clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);">
+                  <img 
+                    src="https://drive.google.com/thumbnail?id=1TYIZxudpMv0NLDL-bCgIUZDCvQA4ExNE&sz=w800" 
+                    alt="Rizki Pahlawi" 
+                    class="w-50 h-50 object-cover"
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Name & Signature Section -->
+          <div class="text-center px-6 relative pb-6">
+            
+            <!-- Golden Signature Overlay behind the text -->
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-0">
+              <span class="font-['Great_Vibes'] text-[5.5rem] text-brand-accent/15 tracking-wider -translate-y-4">Rizki</span>
+            </div>
+
+            <!-- Full Name -->
+            <h3 class="font-heading text-2xl font-extrabold text-brand-primary relative z-10 tracking-wide">
+              Rizki Pahlawi
+            </h3>
+            
+            <!-- Separator Line -->
+            <div class="w-24 h-[1.5px] bg-brand-accent/60 mx-auto my-3"></div>
+            
+            <!-- Subtitle -->
+            <p class="text-xs font-semibold text-brand-secondary/80">
+              Pengajar Al-Qur'an <span class="text-brand-accent">•</span> Founder Sahlah Gadget
+            </p>
+
+            <!-- Short Quote -->
+            <p class="mt-4 text-xs italic text-brand-secondary/70 leading-relaxed max-w-[280px] mx-auto">
+              <span class="text-brand-accent font-bold text-sm">“</span> Ilmu untuk diamalkan, sistem untuk kebermanfaatan, kepercayaan untuk keberkahan. <span class="text-brand-accent font-bold text-sm">”</span>
+            </p>
+          </div>
+
+          <!-- Curved Dark Blue Footer Section -->
+          <div class="mt-auto bg-brand-primary text-white p-6 rounded-t-[1.5rem] relative z-10">
+            <div class="grid grid-cols-3 gap-2 text-center">
+              
+              <!-- Mini Icon 1 -->
+              <div class="flex flex-col items-center gap-1.5">
+                <div class="w-8 h-8 rounded-full border border-brand-accent/30 flex items-center justify-center text-brand-accent bg-brand-secondary/40">
+                  <i data-lucide="book-open" class="w-4 h-4"></i>
+                </div>
+                <span class="text-[9px] font-medium text-slate-300 tracking-wider">Ngajar Baca al-Quran</span>
+              </div>
+              
+              <!-- Mini Icon 2 -->
+              <div class="flex flex-col items-center gap-1.5">
+                <div class="w-8 h-8 rounded-full border border-brand-accent/30 flex items-center justify-center text-brand-accent bg-brand-secondary/40">
+                  <i data-lucide="hand-coins" class="w-4 h-4"></i>
+                </div>
+                <span class="text-[9px] font-medium text-slate-300 tracking-wider">Islamic Fintech Entrepreneur</span>
+              </div>
+              
+              <!-- Mini Icon 3 -->
+              <div class="flex flex-col items-center gap-1.5">
+                <div class="w-8 h-8 rounded-full border border-brand-accent/30 flex items-center justify-center text-brand-accent bg-brand-secondary/40">
+                  <i data-lucide="code" class="w-4 h-4"></i>
+                </div>
+                <span class="text-[9px] font-medium text-slate-300 tracking-wider">Buat Aplikasi Web</span>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="py-24 bg-white/50 border-y border-brand-primary/5 px-6">
+  <div class="max-w-4xl mx-auto space-y-12">
+    <div class="text-center space-y-4">
+      <h2 class="font-heading text-3xl font-bold text-brand-primary">Tentang Saya</h2>
+      <div class="w-12 h-1 bg-brand-accent mx-auto"></div>
+    </div>
+    
+    <div class="prose prose-slate max-w-none text-brand-secondary/90 leading-relaxed space-y-6 text-lg">
+      <div class="space-y-5 text-brand-secondary/80 leading-relaxed">
+
+  <p>
+    Perjalanan saya di dunia pendidikan Al-Qur'an dimulai pada tahun 2017, ketika saya mulai belajar dan menghafal Al-Qur'an secara lebih serius. Dari proses tersebut, saya menyadari bahwa Al-Qur'an bukan hanya untuk dihafal, tetapi juga untuk diajarkan dan diamalkan dalam kehidupan sehari-hari.
+  </p>
+
+  <p>
+    Sejak saat itu, saya mulai terlibat dalam berbagai aktivitas pendidikan Al-Qur'an, mulai dari mengajar anak-anak melalui program TPQ, membuka kelas privat, hingga menjadi imam masjid di lingkungan masyarakat. Pengalaman tersebut mempertemukan saya dengan berbagai kalangan dan mengajarkan bahwa setiap orang memiliki perjalanan belajar yang berbeda.
+  </p>
+
+  <p>
+    Hingga saat ini, saya masih aktif mengajar Al-Qur'an sembari mengabdikan diri di lingkungan pondok pesantren. Selain mengajar, saya juga terlibat dalam pengembangan kurikulum dan sistem pendidikan agar proses pembelajaran dapat berjalan lebih terarah, terukur, dan berkelanjutan.
+  </p>
+
+  <p>
+    Di sisi lain, ketertarikan saya pada dunia teknik dan teknologi membuat saya senang mempelajari berbagai hal baru, khususnya di bidang kecerdasan buatan (AI), pengembangan website, dan otomasi sistem. Ketertarikan tersebut mendorong saya untuk membangun berbagai aplikasi dan website sederhana yang dapat membantu administrasi, pembelajaran, serta pengelolaan lembaga pendidikan menjadi lebih efektif.
+  </p>
+
+  <p>
+    Melalui pendidikan, teknologi, dan kewirausahaan syariah, saya berupaya menghadirkan solusi yang bermanfaat bagi masyarakat. Semangat inilah yang kemudian melahirkan berbagai inisiatif seperti <strong>Sahlah Gadget</strong>, <strong>Sahlah Qur'an</strong>, serta pengembangan aplikasi pendidikan yang terus saya kembangkan hingga hari ini.
+  </p>
+    </div>
+  </div>
+</section>
+
+  <!-- Activities Section -->
+<section id="activities" class="py-24 px-6 max-w-6xl mx-auto">
+  <div class="space-y-16">
+    <div class="text-center space-y-4">
+      <h2 class="font-heading text-3xl font-bold text-brand-primary">Aktivitas Utama</h2>
+      <p class="text-brand-secondary/60 max-w-md mx-auto text-sm">Fokus kontribusi nyata dalam pendidikan, kemudahan kepemilikan, dan pengajaran Al-Qur'an.</p>
+      <div class="w-12 h-1 bg-brand-accent mx-auto"></div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Card 1 -->
+<div class="bg-white border border-brand-primary/5 rounded p-8 hover:shadow-md transition-all flex flex-col justify-between group">
+  <div class="space-y-6">
+    <div class="w-12 h-12 rounded bg-brand-primary/5 flex items-center justify-center text-brand-primary group-hover:bg-brand-accent group-hover:text-white transition-all">
+      <i data-lucide="book-open" class="w-5 h-5"></i>
+    </div>
+
+    <h3 class="font-heading text-xl font-bold text-brand-primary">
+      Mengajar Al-Qur'an
+    </h3>
+
+    <p class="text-sm text-brand-secondary/80 leading-relaxed">
+      Aktif mengajar Al-Qur'an di lingkungan pondok pesantren, kelas privat, dan program Sahlah Qur'an. Berfokus pada pembelajaran yang sederhana, terarah, dan berkelanjutan.
+    </p>
+  </div>
+</div>
+
+      <!-- Card 2 -->
+<div class="bg-white border border-brand-primary/5 rounded p-8 hover:shadow-md transition-all flex flex-col justify-between group">
+  <div class="space-y-6">
+    <div class="w-12 h-12 rounded bg-brand-primary/5 flex items-center justify-center text-brand-primary group-hover:bg-brand-accent group-hover:text-white transition-all">
+      <i data-lucide="smartphone" class="w-5 h-5"></i>
+    </div>
+
+    <h3 class="font-heading text-xl font-bold text-brand-primary">
+      Sahlah Gadget
+    </h3>
+
+    <p class="text-sm text-brand-secondary/80 leading-relaxed">
+      Program kepemilikan gadget berbasis akad syariah yang dirancang untuk memudahkan memiliki perangkat yang dibutuhkan tanpa riba, tanpa denda, tanpa sita dan tanpa akad-akad bathil lainnya bagi masyarakat terutama kalangan guru yang menjadi alasan utama berdirinya Sahlah Gadget. juga mengelola kepercayaan para investor yang mempercayakan investasinya di Sahlah Gadget.
+    </p>
+  </div>
+</div>
+
+     <!-- Card 3 -->
+<div class="bg-white border border-brand-primary/5 rounded p-8 hover:shadow-md transition-all flex flex-col justify-between group">
+  <div class="space-y-6">
+    <div class="w-12 h-12 rounded bg-brand-primary/5 flex items-center justify-center text-brand-primary group-hover:bg-brand-accent group-hover:text-white transition-all">
+      <i data-lucide="code-2" class="w-5 h-5"></i>
+    </div>
+
+    <h3 class="font-heading text-xl font-bold text-brand-primary">
+      Teknologi & AI
+    </h3>
+
+    <p class="text-sm text-brand-secondary/80 leading-relaxed">
+      Mempelajari kecerdasan buatan, pengembangan website, dan otomasi sistem untuk membantu digitalisasi administrasi serta pembelajaran di lingkungan pendidikan.
+    </p>
+  </div>
+</div>
+    </div>
+  </div>
+</section>
+
+  <!-- Projects Section -->
+<section id="projects" class="py-24 bg-white/50 border-y border-brand-primary/5 px-6">
+  <div class="max-w-6xl mx-auto space-y-16">
+    <div class="text-center space-y-4">
+      <h2 class="font-heading text-3xl font-bold text-brand-primary">Portofolio & Proyek</h2>
+      <p class="text-brand-secondary/60 max-w-md mx-auto text-sm">Ruang belajar, mengajar dan berkarya yang saat ini saya tekuni</p>
+      <div class="w-12 h-1 bg-brand-accent mx-auto"></div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      <!-- Project 1 -->
+      <div class="bg-white border border-brand-primary/5 rounded p-8 flex flex-col justify-between hover:shadow-sm transition-all">
+        <div class="space-y-4">
+          <div class="flex justify-between items-start">
+            <h3 class="font-heading text-xl font-bold text-brand-primary">Sahlah Gadget</h3>
+            <span class="text-xs font-semibold px-2.5 py-1 bg-brand-accent/10 text-brand-accent rounded">Kewirausahaan Syariah</span>
+          </div>
+          <p class="text-sm text-brand-secondary/80 leading-relaxed">
+            Platform kepemilikan Gadget dengan akad jual beli murabahah yang transparan dirancang untuk memudahkan masyarakat terutama para guru dengan akad cicilan tanpa riba, tanpa denda, tanpa sita serta tanpa akad bathil. 
+          </p>
+        </div>
+        <div class="pt-6 flex justify-between items-center">
+          <span class="text-xs text-brand-secondary/40">gadget.rizkipahlawi.my.id</span>
+          <a href="https://gadget.rizkipahlawi.my.id" target="_blank" rel="noopener" class="text-xs font-semibold text-brand-accent hover:text-brand-primary flex items-center gap-1 transition-colors">
+            Lihat Detail <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="bg-white border border-brand-primary/5 rounded p-8 flex flex-col justify-between hover:shadow-sm transition-all">
+        <div class="space-y-4">
+          <div class="flex justify-between items-start">
+            <h3 class="font-heading text-xl font-bold text-brand-primary">Sahlah Qur'an</h3>
+            <span class="text-xs font-semibold px-2.5 py-1 bg-brand-accent/10 text-brand-accent rounded">Pendidikan Islam</span>
+          </div>
+          <p class="text-sm text-brand-secondary/80 leading-relaxed">
+            Program pembelajaran Al-Qur'an untuk anak-anak dan dewasa dengan pendekatan yang sederhana, terarah, dan berorientasi pada pembiasaan membaca Al-Qur'an dengan baik dan benar.
+          </p>
+        </div>
+        <div class="pt-6 flex justify-between items-center">
+          <span class="text-xs text-brand-secondary/40">quran.rizkipahlawi.my.id</span>
+          <a href="https://quran.rizkipahlawi.my.id" target="_blank" rel="noopener" class="text-xs font-semibold text-brand-accent hover:text-brand-primary flex items-center gap-1 transition-colors">
+            Lihat Detail <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="bg-white border border-brand-primary/5 rounded p-8 flex flex-col justify-between hover:shadow-sm transition-all">
+        <div class="space-y-4">
+          <div class="flex justify-between items-start">
+            <h3 class="font-heading text-xl font-bold text-brand-primary">Pengembangan Kurikulum</h3>
+            <span class="text-xs font-semibold px-2.5 py-1 bg-brand-accent/10 text-brand-accent rounded">Sistem Edukasi</span>
+          </div>
+          <p class="text-sm text-brand-secondary/80 leading-relaxed">
+            Keterlibatan dalam penyusunan dan pengembangan kurikulum pendidikan Islam dan Al-Qur'an di lingkungan pesantren, dengan fokus pada sistem pembelajaran yang terukur dan berkelanjutan.
+          </p>
+        </div>
+        <div class="pt-6 flex justify-between items-center">
+          <span class="text-xs text-brand-secondary/40">Internal Project</span>
+          <span class="text-xs font-semibold text-brand-secondary/40 flex items-center gap-1">
+            Active Archive <i data-lucide="lock" class="w-3.5 h-3.5"></i>
+          </span>
+        </div>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="bg-white border border-brand-primary/5 rounded p-8 flex flex-col justify-between hover:shadow-sm transition-all">
+        <div class="space-y-4">
+          <div class="flex justify-between items-start">
+            <h3 class="font-heading text-xl font-bold text-brand-primary">Pengembangan Aplikasi Pendidikan</h3>
+            <span class="text-xs font-semibold px-2.5 py-1 bg-brand-accent/10 text-brand-accent rounded">Teknologi Pendidikan</span>
+          </div>
+          <p class="text-sm text-brand-secondary/80 leading-relaxed">
+            Mengembangkan aplikasi berbasis Google Apps Script, Spreadsheet, dan teknologi web untuk membantu digitalisasi administrasi, akademik, raport, kepegawaian, serta manajemen lembaga pendidikan.
+          </p>
+        </div>
+        <div class="pt-6 flex justify-between items-center">
+          <span class="text-xs text-brand-secondary/40">Aplikasi Pendidikan</span>
+          <span class="text-xs font-semibold text-brand-secondary/40 flex items-center gap-1">
+            Lihat Detail <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Projects Section -->
+<section id="projects" class="py-24 bg-white/50 border-y border-brand-primary/5 px-6">
+  <div class="max-w-6xl mx-auto space-y-16">
+    <div class="text-center space-y-4">
+      <h2 class="font-heading text-3xl font-bold text-brand-primary">Portofolio & Proyek</h2>
+      <p class="text-brand-secondary/60 max-w-md mx-auto text-sm">Ruang belajar, mengajar dan berkarya yang saat ini saya tekuni</p>
+      <div class="w-12 h-1 bg-brand-accent mx-auto"></div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      <!-- Project 1 -->
+      <div class="bg-white border border-brand-primary/5 rounded p-8 flex flex-col justify-between hover:shadow-sm transition-all">
+        <div class="space-y-4">
+          <div class="flex justify-between items-start">
+            <h3 class="font-heading text-xl font-bold text-brand-primary">Sahlah Gadget</h3>
+            <span class="text-xs font-semibold px-2.5 py-1 bg-brand-accent/10 text-brand-accent rounded">Kewirausahaan Syariah</span>
+          </div>
+          <p class="text-sm text-brand-secondary/80 leading-relaxed">
+            Platform kepemilikan Gadget dengan akad jual beli murabahah yang transparan dirancang untuk memudahkan masyarakat terutama para guru dengan akad cicilan tanpa riba, tanpa denda, tanpa sita serta tanpa akad bathil. 
+          </p>
+        </div>
+        <div class="pt-6 flex justify-between items-center">
+          <span class="text-xs text-brand-secondary/40">gadget.rizkipahlawi.my.id</span>
+          <a href="https://gadget.rizkipahlawi.my.id" target="_blank" rel="noopener" class="text-xs font-semibold text-brand-accent hover:text-brand-primary flex items-center gap-1 transition-colors">
+            Lihat Detail <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="bg-white border border-brand-primary/5 rounded p-8 flex flex-col justify-between hover:shadow-sm transition-all">
+        <div class="space-y-4">
+          <div class="flex justify-between items-start">
+            <h3 class="font-heading text-xl font-bold text-brand-primary">Sahlah Qur'an</h3>
+            <span class="text-xs font-semibold px-2.5 py-1 bg-brand-accent/10 text-brand-accent rounded">Pendidikan Islam</span>
+          </div>
+          <p class="text-sm text-brand-secondary/80 leading-relaxed">
+            Program pembelajaran Al-Qur'an untuk anak-anak dan dewasa dengan pendekatan yang sederhana, terarah, dan berorientasi pada pembiasaan membaca Al-Qur'an dengan baik dan benar.
+          </p>
+        </div>
+        <div class="pt-6 flex justify-between items-center">
+          <span class="text-xs text-brand-secondary/40">quran.rizkipahlawi.my.id</span>
+          <a href="https://quran.rizkipahlawi.my.id" target="_blank" rel="noopener" class="text-xs font-semibold text-brand-accent hover:text-brand-primary flex items-center gap-1 transition-colors">
+            Lihat Detail <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="bg-white border border-brand-primary/5 rounded p-8 flex flex-col justify-between hover:shadow-sm transition-all">
+        <div class="space-y-4">
+          <div class="flex justify-between items-start">
+            <h3 class="font-heading text-xl font-bold text-brand-primary">Pengembangan Kurikulum</h3>
+            <span class="text-xs font-semibold px-2.5 py-1 bg-brand-accent/10 text-brand-accent rounded">Sistem Edukasi</span>
+          </div>
+          <p class="text-sm text-brand-secondary/80 leading-relaxed">
+            Keterlibatan dalam penyusunan dan pengembangan kurikulum pendidikan Islam dan Al-Qur'an di lingkungan pesantren, dengan fokus pada sistem pembelajaran yang terukur dan berkelanjutan.
+          </p>
+        </div>
+        <div class="pt-6 flex justify-between items-center">
+          <span class="text-xs text-brand-secondary/40">Internal Project</span>
+          <span class="text-xs font-semibold text-brand-secondary/40 flex items-center gap-1">
+            Active Archive <i data-lucide="lock" class="w-3.5 h-3.5"></i>
+          </span>
+        </div>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="bg-white border border-brand-primary/5 rounded p-8 flex flex-col justify-between hover:shadow-sm transition-all">
+        <div class="space-y-4">
+          <div class="flex justify-between items-start">
+            <h3 class="font-heading text-xl font-bold text-brand-primary">Pengembangan Aplikasi Pendidikan</h3>
+            <span class="text-xs font-semibold px-2.5 py-1 bg-brand-accent/10 text-brand-accent rounded">Teknologi Pendidikan</span>
+          </div>
+          <p class="text-sm text-brand-secondary/80 leading-relaxed">
+            Mengembangkan aplikasi berbasis Google Apps Script, Spreadsheet, dan teknologi web untuk membantu digitalisasi administrasi, akademik, raport, kepegawaian, serta manajemen lembaga pendidikan.
+          </p>
+        </div>
+        <div class="pt-6 flex justify-between items-center">
+          <span class="text-xs text-brand-secondary/40">Aplikasi Pendidikan</span>
+          <span class="text-xs font-semibold text-brand-secondary/40 flex items-center gap-1">
+            Lihat Detail <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Blog Section -->
+<section id="articles" class="py-24 px-6 max-w-6xl mx-auto">
+  <div class="space-y-16">
+    <div class="text-center space-y-4">
+      <h2 class="font-heading text-3xl font-bold text-brand-primary">Tulisan dan Catatan</h2>
+      <p class="text-brand-secondary/60 max-w-md mx-auto text-sm">Tempat saya menyimpan pemikiran, pengalaman mengajar, pembelajaran teknologi, serta catatan perjalanan membangun pendidikan dan usaha Sahlah Gadget .</p>
+      <div class="w-12 h-1 bg-brand-accent mx-auto"></div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+
+  <article class="bg-white border border-brand-primary/5 rounded overflow-hidden hover:shadow-md transition-all">
+    <img
+      src="https://drive.google.com/thumbnail?id=1NZi49kcbZbOrzZu2NcR2Hw1KzA5Q23qR&sz=w1200"
+      class="w-full h-48 object-cover"
+    >
+
+    <div class="p-6">
+      <div class="flex items-center gap-2 mb-3">
+        <span class="text-xs font-semibold uppercase tracking-wider text-brand-accent">
+          Perjalanan
+        </span>
+      </div>
+
+      <h3 class="font-heading text-lg font-bold text-brand-primary">
+        Perjalanan Saya Menghafal Al-Qur'an
+      </h3>
+
+      <p class="mt-3 text-sm text-brand-secondary/80 leading-relaxed">
+        "Jika melihat latar belakang saya, mungkin tidak banyak yang menyangka bahwa saya akhirnya memilih jalan yang dekat dengan dunia Al-Qur'an. Saya lahir dan tumbuh dalam lingkungan pendidikan umum. Dari SD hingga SMA, saya tidak pernah mondok ataupun belajar di lembaga tahfidz. Bahkan ketika lulus SMA, hafalan saya masih sangat terbatas. Surat-surat pendek dari Adh-Dhuha hingga An-Nas saja belum benar-benar kuat di ingatan. 
+
+Setelah lulus SMA, saya melanjutkan pendidikan ke jurusan Teknik Industri di salah satu perguruan tinggi di Padang. Meskipun pada akhirnya perkuliahan tersebut tidak saya selesaikan hingga lulus, masa itu menjadi salah satu fase penting dalam perjalanan hidup saya. Di sanalah saya mulai tertarik untuk mempelajari agama Islam lebih serius dan mengenal manhaj salaf sedikit demi sedikit. 
+
+Awalnya saya banyak mendengarkan kajian-kajian yang disampaikan oleh Ustadz Khalid Basalamah hafizhahullah. Melalui kajian tersebut, Allah membuka pintu ketertarikan saya terhadap ilmu syar'i. Tidak lama kemudian, Allah mempertemukan saya dengan salah seorang senior di Teknik yang lebih dahulu mengenal manhaj salaf. Beliau sering mengajak saya menghadiri kajian yang disampaikan oleh Ustadz Muhammad Elvi Syam hafizhahullah di Padang. Dari situlah semangat untuk belajar agama semakin tumbuh dan semakin kuat. 
+
+Pada tahun 2017, Allah memberikan kesempatan yang tidak pernah saya bayangkan sebelumnya. Saat itu dibuka program beasiswa Kuliah Tahfidz Al-Qur'an di salah satu ma'had di Kota Padang. Saya memberanikan diri untuk mendaftar, meskipun kemampuan membaca Al-Qur'an dan hafalan saya saat itu masih jauh dari kata baik. 
+
+Perjalanan menghafal Al-Qur'an saya tidak dimulai dengan hafalan, melainkan dengan tahsin. Saya harus memperbaiki bacaan terlebih dahulu, belajar mengenali kesalahan-kesalahan yang selama ini tidak saya sadari, lalu berusaha memperbaikinya sedikit demi sedikit. Proses itu tidak selalu mudah, tetapi justru di situlah saya belajar bahwa hasil yang besar lahir dari kesabaran dan konsistensi dalam langkah-langkah kecil. 
+
+Seiring berjalannya waktu, Allah memudahkan saya untuk mulai menghafal Al-Qur'an. Dari proses belajar tersebut, saya kemudian mendapatkan kesempatan untuk mengajar anak-anak, bapak-bapak, serta menjadi imam masjid di lingkungan masyarakat. Semakin banyak mengajar, semakin saya menyadari bahwa belajar dan mengajarkan Al-Qur'an adalah perjalanan yang tidak pernah selesai. 
+
+Pada tahun 2022, saya memutuskan untuk pindah ke Duri, mengikuti domisili keluarga istri. Di sana saya bergabung dengan Yayasan Baitulhuda Duri sebagai pengajar Al-Qur'an di SDIT Alhuda dan Pondok Pesantren Tahfidz Al-Qur'an Alhuda untuk jenjang SMP dan SMA. Hingga hari ini, saya masih terus belajar, mengajar, dan berusaha mengambil bagian dalam pengembangan pendidikan Al-Qur'an serta kurikulum pendidikan Islam. 
+
+Perjalanan ini mengajarkan saya bahwa tidak ada kata terlambat untuk memulai. Saya bukan berasal dari pesantren, bukan pula lulusan lembaga tahfidz sejak kecil. Namun ketika seseorang bersungguh-sungguh dan memohon pertolongan kepada Allah, selalu ada jalan untuk belajar, memperbaiki diri, dan memberikan manfaat kepada orang lain.".
+      </p>
+    </div>
+  </article>
+
+</div>
+
+  <!-- Article Detail Modal -->
+  <div x-show="activePost" x-cloak class="fixed inset-0 z-50 overflow-y-auto flex items-center justify-center p-4 bg-brand-primary/60 backdrop-blur-sm" @click.away="activePost = null">
+    <div class="bg-brand-bg rounded-lg max-w-2xl w-full border border-brand-primary/10 shadow-2xl flex flex-col max-h-[85vh]">
+      <div class="p-6 border-b border-brand-primary/5 flex items-center justify-between">
+        <div>
+          <span class="text-xs font-semibold uppercase tracking-wider text-brand-accent" x-text="activePost?.category"></span>
+          <h2 class="font-heading text-xl font-bold text-brand-primary mt-1" x-text="activePost?.title"></h2>
+        </div>
+        <button @click="activePost = null" class="text-brand-primary hover:text-brand-accent transition-colors">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+      <div class="p-6 overflow-y-auto space-y-6 text-brand-secondary/90 leading-relaxed text-sm">
+        <div class="h-64 rounded overflow-hidden bg-slate-100">
+          <img :src="activePost?.image_url || 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80'" :alt="activePost?.title" class="w-full h-full object-cover">
+        </div>
+        <div class="flex items-center gap-4 text-xs text-brand-secondary/50">
+          <span>Penulis: <strong x-text="activePost?.author"></strong></span>
+          <span>•</span>
+          <span x-text="formatDate(activePost?.created_at)"></span>
+        </div>
+        <p class="whitespace-pre-line" x-text="activePost?.content"></p>
+      </div>
+      <div class="p-4 bg-white border-t border-brand-primary/5 flex justify-end">
+        <button @click="activePost = null" class="px-4 py-2 bg-brand-primary text-white text-xs font-semibold rounded hover:bg-brand-secondary transition-colors">
+          Tutup Artikel
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+  
+  <!-- Contact Section -->
+<section id="contact" class="py-24 bg-white/50 border-t border-brand-primary/5 px-6">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-12 gap-12">
+    <!-- Info Column -->
+    <div class="md:col-span-5 space-y-8">
+      <div class="space-y-4">
+        <h2 class="font-heading text-3xl font-bold text-brand-primary">Hubungi Saya</h2>
+        <p class="text-brand-secondary/80 text-sm leading-relaxed">
+          Silakan kirimkan pesan, pertanyaan, atau ajakan kolaborasi strategis melalui formulir di samping, atau hubungi saya secara langsung melalui kontak resmi di bawah ini.
+        </p>
+        <div class="w-12 h-1 bg-brand-accent"></div>
+      </div>
+
+      <div class="space-y-4 text-sm">
+        <a href="https://wa.me/6282125286753" target="_blank" rel="noopener" class="flex items-center gap-3 text-brand-secondary hover:text-brand-accent transition-colors">
+          <div class="w-9 h-9 rounded bg-brand-primary/5 flex items-center justify-center">
+            <i data-lucide="phone" class="w-4 h-4"></i>
+          </div>
+          <span>+62 821-2528-6753 (WhatsApp)</span>
+        </a>
+        <a href="mailto:admin@rizkipahlawi.my.id" class="flex items-center gap-3 text-brand-secondary hover:text-brand-accent transition-colors">
+          <div class="w-9 h-9 rounded bg-brand-primary/5 flex items-center justify-center">
+            <i data-lucide="mail" class="w-4 h-4"></i>
+          </div>
+          <span>admin@rizkipahlawi.my.id</span>
+        </a>
+        <a href="https://www.instagram.com/r_pahlawi?igsh=eGhmM3B5ZGM1cWUx" target="_blank" rel="noopener" class="flex items-center gap-3 text-brand-secondary hover:text-brand-accent transition-colors">
+          <div class="w-9 h-9 rounded bg-brand-primary/5 flex items-center justify-center">
+            <i data-lucide="instagram" class="w-4 h-4"></i>
+          </div>
+          <span>@r_pahlawi</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Form Column -->
+   <div class="md:col-span-7 bg-white p-8 rounded border border-brand-primary/5 shadow-sm">
+      <div class="space-y-4">
+
+  <a
+    href="https://wa.me/6282125286753"
+    target="_blank"
+    class="block w-full text-center py-3 bg-green-600 text-white rounded hover:bg-green-700 transition"
+  >
+    Hubungi via WhatsApp
+  </a>
+
+  <a
+    href="mailto:admin@rizkipahlawi.my.id"
+    class="block w-full text-center py-3 bg-brand-primary text-white rounded"
+  >
+    Kirim Email
+  </a>
+
+  <a
+    href="https://www.instagram.com/r_pahlawi"
+    target="_blank"
+    class="block w-full text-center py-3 border border-brand-primary rounded"
+  >
+    Instagram @r_pahlawi
+  </a>
+
+</div>
+    </div>
+  </div>
+</section>
+
+  
   <!-- Footer -->
   <footer class="bg-brand-primary text-white py-16 px-6">
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 border-b border-white/10 pb-12">
@@ -144,78 +728,6 @@
         }
       }
     }
-
-    // Blog Integration State
-    function blogState() {
-      return {
-        loading: false,
-        posts: [],
-        activePost: null,
-        fetchPosts() {
-          this.loading = true;
-          google.script.run
-            .withSuccessHandler(res => {
-              this.loading = false;
-              if (res.ok) {
-                this.posts = res.data;
-              } else {
-                console.error('Error fetching blog posts:', res.message);
-              }
-              this.$nextTick(() => { lucide.createIcons(); });
-            })
-            .withFailureHandler(err => {
-              this.loading = false;
-              console.error('Failure fetching blog posts:', err);
-            })
-            .getBlogPosts();
-        },
-        openPost(post) {
-          this.activePost = post;
-          this.$nextTick(() => { lucide.createIcons(); });
-        },
-        formatDate(isoString) {
-          if (!isoString) return '';
-          try {
-            const date = new Date(isoString);
-            return date.toLocaleDateString('id-ID', {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric'
-            });
-          } catch(e) {
-            return isoString;
-          }
-        }
-      }
-    }
-
-    // Contact Form Submission State
-    function contactForm() {
-      return {
-        loading: false,
-        formData: {
-          nama: '',
-          email: '',
-          pesan: ''
-        },
-        submitForm() {
-          this.loading = true;
-          google.script.run
-            .withSuccessHandler(res => {
-              this.loading = false;
-              if (res.ok) {
-                this.$parent.showToast(res.message, 'success');
-                this.formData = { nama: '', email: '', pesan: '' };
-              } else {
-                this.$parent.showToast('Gagal mengirim pesan: ' + res.message, 'error');
-              }
-            })
-            .withFailureHandler(err => {
-              this.loading = false;
-              this.$parent.showToast('Terjadi kesalahan jaringan.', 'error');
-            })
-            .submitContact(this.formData);
-        }
       }
     }
   </script>
